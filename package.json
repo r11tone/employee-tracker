@@ -4,14 +4,15 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^4.17.1",
+    "console.table": "^0.10.0",
+    "inquirer": "^8.2.4",
     "jshint": "^2.12.0",
     "mysql2": "^2.2.5"
   }
