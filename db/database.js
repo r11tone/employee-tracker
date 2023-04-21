@@ -1,21 +1,28 @@
 const connection = require('./connection');
+const cTable = require('console.table');
 
 const database = {
     // ? object with methods to perform database operations
-    addEmployee(employee) {
-        connection.query('INSERT INTO employee(first_name, last_name, )', employee)
+ addEmployee: function (employee) {
+    connection.query('INSERT INTO employee(first_name, last_name, )', employee)
         .then((result) => {
             console.log('adding employee result', result)
         })
         .catch((err) => console.error(err))
-    }
+ },
+ getAllEmployees: function () {
+    connection.query('SELECT * FROM employee', function (err,results){
+        if(err){
+            console.log(err)
+        }
+        console.table(results)
+    })
+ }
 
-    getAllEmployees() {
-        connection.query('SELECT * FROM employee').then((result) => {
-            console.log('Getting All Employees...')
-            console.table(result)
-        }).catch((err) => console.log(err))
-    }
+
 }
 
 module.exports = database;
+
+
+
