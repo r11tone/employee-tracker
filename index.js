@@ -3,9 +3,10 @@ const inquirer = require('inquirer')
 
 const trackerQuestions = [{
     type: 'list',
-    name: 'choice', message: 'What would you like to do?', choices: [{
-        name: 'View all employees', value: 'view all employees'
-    }]
+    name: 'choice', message: 'What would you like to do?', choices: [
+        'view all employees', 'view all departments', 'view all roles', 'add a role', 'add an employee',
+        'update employee role'
+    ]
 }]
 
 inquirer
@@ -18,6 +19,21 @@ inquirer
         if (answers.choice === 'view all employees') {
             database.getAllEmployees()
         }
+        if (answers.choice === 'view all departments') {
+            database.getAllDepartments()
+        }
+        if (answers.choice === 'view all roles') {
+            database.getAllRoles()
+        }
+        if (answers.choice === 'add a role') {
+            database.addRoles()
+        }
+        if (answers.choice === 'add an employee') {
+            database.addEmployee()
+        }
+        if (answers.choice === 'update employee role') {
+            database.updateEmployees()
+        }
         // Use user feedback for... whatever!!
     })
     .catch((error) => {
@@ -27,5 +43,7 @@ inquirer
             // Something else went wrong
         }
     });
+
+
 
 
